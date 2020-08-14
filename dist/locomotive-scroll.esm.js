@@ -2203,7 +2203,11 @@ var _default$2 = /*#__PURE__*/function (_Core) {
           }
 
           if (!_this6.sections[y].inView) {
-            top = targetEl.getBoundingClientRect().top - getTranslate(_this6.sections[y].el).y - getTranslate(targetEl).y;
+            if (sticky) {
+              top = targetEl.getBoundingClientRect().top;
+            } else {
+              top = targetEl.getBoundingClientRect().top - getTranslate(_this6.sections[y].el).y - getTranslate(targetEl).y;
+            }
           } else {
             top = targetEl.getBoundingClientRect().top + _this6.instance.scroll.y - getTranslate(targetEl).y;
           }
